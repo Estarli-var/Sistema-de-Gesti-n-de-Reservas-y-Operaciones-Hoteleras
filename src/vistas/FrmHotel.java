@@ -35,13 +35,6 @@ public class FrmHotel extends javax.swing.JFrame {
         lblRecepcionista = new javax.swing.JLabel();
         btnCambiarUsuario = new javax.swing.JButton();
         tabPrincipal = new javax.swing.JTabbedPane();
-        Inicio = new javax.swing.JPanel();
-        Huéspedes = new javax.swing.JPanel();
-        Habitaciones = new javax.swing.JPanel();
-        Reservas = new javax.swing.JPanel();
-        Disponibilidad = new javax.swing.JPanel();
-        CheckIn_out = new javax.swing.JPanel();
-        Simulación = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestión Hotelera - Hotel");
@@ -75,98 +68,6 @@ public class FrmHotel extends javax.swing.JFrame {
         getContentPane().add(pnlEncabezado, java.awt.BorderLayout.PAGE_START);
 
         tabPrincipal.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-
-        javax.swing.GroupLayout InicioLayout = new javax.swing.GroupLayout(Inicio);
-        Inicio.setLayout(InicioLayout);
-        InicioLayout.setHorizontalGroup(
-            InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 944, Short.MAX_VALUE)
-        );
-        InicioLayout.setVerticalGroup(
-            InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 208, Short.MAX_VALUE)
-        );
-
-        tabPrincipal.addTab(" Inicio", new javax.swing.ImageIcon(getClass().getResource("/Iconos/hogar (1).png")), Inicio); // NOI18N
-
-        javax.swing.GroupLayout HuéspedesLayout = new javax.swing.GroupLayout(Huéspedes);
-        Huéspedes.setLayout(HuéspedesLayout);
-        HuéspedesLayout.setHorizontalGroup(
-            HuéspedesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 944, Short.MAX_VALUE)
-        );
-        HuéspedesLayout.setVerticalGroup(
-            HuéspedesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 208, Short.MAX_VALUE)
-        );
-
-        tabPrincipal.addTab(" Huéspedes", new javax.swing.ImageIcon(getClass().getResource("/Iconos/equipo.png")), Huéspedes); // NOI18N
-
-        javax.swing.GroupLayout HabitacionesLayout = new javax.swing.GroupLayout(Habitaciones);
-        Habitaciones.setLayout(HabitacionesLayout);
-        HabitacionesLayout.setHorizontalGroup(
-            HabitacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 944, Short.MAX_VALUE)
-        );
-        HabitacionesLayout.setVerticalGroup(
-            HabitacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 208, Short.MAX_VALUE)
-        );
-
-        tabPrincipal.addTab(" Habitaciones", new javax.swing.ImageIcon(getClass().getResource("/Iconos/signo-de-hotel.png")), Habitaciones); // NOI18N
-
-        javax.swing.GroupLayout ReservasLayout = new javax.swing.GroupLayout(Reservas);
-        Reservas.setLayout(ReservasLayout);
-        ReservasLayout.setHorizontalGroup(
-            ReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 944, Short.MAX_VALUE)
-        );
-        ReservasLayout.setVerticalGroup(
-            ReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 208, Short.MAX_VALUE)
-        );
-
-        tabPrincipal.addTab(" Reservas", new javax.swing.ImageIcon(getClass().getResource("/Iconos/reserva.png")), Reservas); // NOI18N
-
-        javax.swing.GroupLayout DisponibilidadLayout = new javax.swing.GroupLayout(Disponibilidad);
-        Disponibilidad.setLayout(DisponibilidadLayout);
-        DisponibilidadLayout.setHorizontalGroup(
-            DisponibilidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 944, Short.MAX_VALUE)
-        );
-        DisponibilidadLayout.setVerticalGroup(
-            DisponibilidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 208, Short.MAX_VALUE)
-        );
-
-        tabPrincipal.addTab(" Disponibilidad", new javax.swing.ImageIcon(getClass().getResource("/Iconos/disponibilidad.png")), Disponibilidad); // NOI18N
-
-        javax.swing.GroupLayout CheckIn_outLayout = new javax.swing.GroupLayout(CheckIn_out);
-        CheckIn_out.setLayout(CheckIn_outLayout);
-        CheckIn_outLayout.setHorizontalGroup(
-            CheckIn_outLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 944, Short.MAX_VALUE)
-        );
-        CheckIn_outLayout.setVerticalGroup(
-            CheckIn_outLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 208, Short.MAX_VALUE)
-        );
-
-        tabPrincipal.addTab("Check-in / Check-out", new javax.swing.ImageIcon(getClass().getResource("/Iconos/vigilancia.png")), CheckIn_out); // NOI18N
-
-        javax.swing.GroupLayout SimulaciónLayout = new javax.swing.GroupLayout(Simulación);
-        Simulación.setLayout(SimulaciónLayout);
-        SimulaciónLayout.setHorizontalGroup(
-            SimulaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 944, Short.MAX_VALUE)
-        );
-        SimulaciónLayout.setVerticalGroup(
-            SimulaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 208, Short.MAX_VALUE)
-        );
-
-        tabPrincipal.addTab(" Simulación", new javax.swing.ImageIcon(getClass().getResource("/Iconos/simulacion.png")), Simulación); // NOI18N
-
         getContentPane().add(tabPrincipal, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -198,15 +99,7 @@ public class FrmHotel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel CheckIn_out;
-    private javax.swing.JPanel Disponibilidad;
-    private javax.swing.JPanel Habitaciones;
-    private javax.swing.JPanel Huéspedes;
-    private javax.swing.JPanel Inicio;
-    private javax.swing.JPanel Reservas;
-    private javax.swing.JPanel Simulación;
     private javax.swing.JButton btnCambiarUsuario;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblRecepcionista;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlEncabezado;
