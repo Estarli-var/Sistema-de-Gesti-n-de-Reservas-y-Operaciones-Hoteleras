@@ -13,10 +13,26 @@ public class PnlHabitaciones extends javax.swing.JPanel {
     /**
      * Creates new form pnlHabitaciones
      */
+    // Bandera que indica si el panel ya terminó de construirse.
+    // Mientras sea false, se permite cambiar el layout; cuando es true, se bloquea.
+    private boolean layoutFijo = false;
+
     public PnlHabitaciones() {
         initComponents();
+        
+        // A partir de aquí, el layout queda bloqueado.
+        layoutFijo = true;
     }
 
+    
+    // Este método lo intercepta: si el panel ya está construido, ignora ese cambio
+    // y conserva el BorderLayout original.
+    @Override
+    public void setLayout(java.awt.LayoutManager mgr) {
+        if (!layoutFijo) {
+            super.setLayout(mgr);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,19 +42,162 @@ public class PnlHabitaciones extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        pnlFormulario2 = new javax.swing.JPanel();
+        lblNumero = new javax.swing.JLabel();
+        txtNumero = new javax.swing.JTextField();
+        lblTipo = new javax.swing.JLabel();
+        cmbTipo = new javax.swing.JComboBox<>();
+        lblCapacidad = new javax.swing.JLabel();
+        txtCapacidad = new javax.swing.JTextField();
+        lblTarifa = new javax.swing.JLabel();
+        txtTarifa = new javax.swing.JTextField();
+        btnRegistrar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblHabitaciones = new javax.swing.JTable();
+
+        setLayout(new java.awt.BorderLayout());
+
+        lblNumero.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblNumero.setText("Número");
+
+        txtNumero.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtNumero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        txtNumero.addActionListener(this::txtNumeroActionPerformed);
+
+        lblTipo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblTipo.setText("Tipo");
+
+        cmbTipo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Individual", "Doble", "Familiar" }));
+        cmbTipo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(200, 200, 200), 1, true));
+
+        lblCapacidad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblCapacidad.setText("Capacidad");
+
+        txtCapacidad.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtCapacidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        txtCapacidad.setEnabled(false);
+
+        lblTarifa.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblTarifa.setText("Tarifa por noche");
+
+        txtTarifa.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtTarifa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        txtTarifa.setEnabled(false);
+
+        btnRegistrar.setBackground(new java.awt.Color(31, 95, 191));
+        btnRegistrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(220, 220, 200));
+        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/add.png"))); // NOI18N
+        btnRegistrar.setText(" Registrar");
+
+        btnLimpiar.setBackground(new java.awt.Color(204, 204, 204));
+        btnLimpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/broom.png"))); // NOI18N
+        btnLimpiar.setText(" Limpiar");
+
+        tblHabitaciones.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        tblHabitaciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Número", "Tipo", "Capacidad", "Tarifa"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblHabitaciones.setRowHeight(24);
+        jScrollPane1.setViewportView(tblHabitaciones);
+
+        javax.swing.GroupLayout pnlFormulario2Layout = new javax.swing.GroupLayout(pnlFormulario2);
+        pnlFormulario2.setLayout(pnlFormulario2Layout);
+        pnlFormulario2Layout.setHorizontalGroup(
+            pnlFormulario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFormulario2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(pnlFormulario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNumero)
+                    .addComponent(lblTipo)
+                    .addComponent(lblCapacidad)
+                    .addComponent(lblTarifa))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlFormulario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormulario2Layout.createSequentialGroup()
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+
+        pnlFormulario2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmbTipo, txtCapacidad, txtNumero, txtTarifa});
+
+        pnlFormulario2Layout.setVerticalGroup(
+            pnlFormulario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFormulario2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormulario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNumero)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(pnlFormulario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblTipo)
+                    .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormulario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCapacidad)
+                    .addComponent(txtCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(pnlFormulario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTarifa)
+                    .addComponent(txtTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlFormulario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
         );
+
+        add(pnlFormulario2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JComboBox<String> cmbTipo;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCapacidad;
+    private javax.swing.JLabel lblNumero;
+    private javax.swing.JLabel lblTarifa;
+    private javax.swing.JLabel lblTipo;
+    private javax.swing.JPanel pnlFormulario2;
+    private javax.swing.JTable tblHabitaciones;
+    private javax.swing.JTextField txtCapacidad;
+    private javax.swing.JTextField txtNumero;
+    private javax.swing.JTextField txtTarifa;
     // End of variables declaration//GEN-END:variables
 }

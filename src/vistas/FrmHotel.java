@@ -35,6 +35,13 @@ public class FrmHotel extends javax.swing.JFrame {
         lblRecepcionista = new javax.swing.JLabel();
         btnCambiarUsuario = new javax.swing.JButton();
         tabPrincipal = new javax.swing.JTabbedPane();
+        pnlInicio1 = new vistas.PnlInicio();
+        pnlHuespedes1 = new vistas.PnlHuespedes();
+        pnlHabitaciones1 = new vistas.PnlHabitaciones();
+        pnlReservas1 = new vistas.PnlReservas();
+        pnlDisponibilidad1 = new vistas.PnlDisponibilidad();
+        pnlCheckInOut1 = new vistas.PnlCheckInOut();
+        pnlSimulacion1 = new vistas.PnlSimulacion();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestión Hotelera - Hotel");
@@ -68,6 +75,98 @@ public class FrmHotel extends javax.swing.JFrame {
         getContentPane().add(pnlEncabezado, java.awt.BorderLayout.PAGE_START);
 
         tabPrincipal.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+
+        javax.swing.GroupLayout pnlInicio1Layout = new javax.swing.GroupLayout(pnlInicio1);
+        pnlInicio1.setLayout(pnlInicio1Layout);
+        pnlInicio1Layout.setHorizontalGroup(
+            pnlInicio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 944, Short.MAX_VALUE)
+        );
+        pnlInicio1Layout.setVerticalGroup(
+            pnlInicio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+        );
+
+        tabPrincipal.addTab(" Inicio", new javax.swing.ImageIcon(getClass().getResource("/Iconos/hogar (1).png")), pnlInicio1); // NOI18N
+
+        javax.swing.GroupLayout pnlHuespedes1Layout = new javax.swing.GroupLayout(pnlHuespedes1);
+        pnlHuespedes1.setLayout(pnlHuespedes1Layout);
+        pnlHuespedes1Layout.setHorizontalGroup(
+            pnlHuespedes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 944, Short.MAX_VALUE)
+        );
+        pnlHuespedes1Layout.setVerticalGroup(
+            pnlHuespedes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+        );
+
+        tabPrincipal.addTab(" Huéspedes", new javax.swing.ImageIcon(getClass().getResource("/Iconos/equipo.png")), pnlHuespedes1); // NOI18N
+
+        javax.swing.GroupLayout pnlHabitaciones1Layout = new javax.swing.GroupLayout(pnlHabitaciones1);
+        pnlHabitaciones1.setLayout(pnlHabitaciones1Layout);
+        pnlHabitaciones1Layout.setHorizontalGroup(
+            pnlHabitaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 944, Short.MAX_VALUE)
+        );
+        pnlHabitaciones1Layout.setVerticalGroup(
+            pnlHabitaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+        );
+
+        tabPrincipal.addTab(" Habitaciones", new javax.swing.ImageIcon(getClass().getResource("/Iconos/signo-de-hotel.png")), pnlHabitaciones1); // NOI18N
+
+        javax.swing.GroupLayout pnlReservas1Layout = new javax.swing.GroupLayout(pnlReservas1);
+        pnlReservas1.setLayout(pnlReservas1Layout);
+        pnlReservas1Layout.setHorizontalGroup(
+            pnlReservas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 944, Short.MAX_VALUE)
+        );
+        pnlReservas1Layout.setVerticalGroup(
+            pnlReservas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+        );
+
+        tabPrincipal.addTab(" Reservas", new javax.swing.ImageIcon(getClass().getResource("/Iconos/reserva.png")), pnlReservas1); // NOI18N
+
+        javax.swing.GroupLayout pnlDisponibilidad1Layout = new javax.swing.GroupLayout(pnlDisponibilidad1);
+        pnlDisponibilidad1.setLayout(pnlDisponibilidad1Layout);
+        pnlDisponibilidad1Layout.setHorizontalGroup(
+            pnlDisponibilidad1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 944, Short.MAX_VALUE)
+        );
+        pnlDisponibilidad1Layout.setVerticalGroup(
+            pnlDisponibilidad1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+        );
+
+        tabPrincipal.addTab(" Disponibilidad", new javax.swing.ImageIcon(getClass().getResource("/Iconos/disponibilidad.png")), pnlDisponibilidad1); // NOI18N
+
+        javax.swing.GroupLayout pnlCheckInOut1Layout = new javax.swing.GroupLayout(pnlCheckInOut1);
+        pnlCheckInOut1.setLayout(pnlCheckInOut1Layout);
+        pnlCheckInOut1Layout.setHorizontalGroup(
+            pnlCheckInOut1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 944, Short.MAX_VALUE)
+        );
+        pnlCheckInOut1Layout.setVerticalGroup(
+            pnlCheckInOut1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+        );
+
+        tabPrincipal.addTab(" Check-in / Check-out", new javax.swing.ImageIcon(getClass().getResource("/Iconos/vigilancia.png")), pnlCheckInOut1); // NOI18N
+
+        javax.swing.GroupLayout pnlSimulacion1Layout = new javax.swing.GroupLayout(pnlSimulacion1);
+        pnlSimulacion1.setLayout(pnlSimulacion1Layout);
+        pnlSimulacion1Layout.setHorizontalGroup(
+            pnlSimulacion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 944, Short.MAX_VALUE)
+        );
+        pnlSimulacion1Layout.setVerticalGroup(
+            pnlSimulacion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+        );
+
+        tabPrincipal.addTab(" Simulacion", new javax.swing.ImageIcon(getClass().getResource("/Iconos/simulacion.png")), pnlSimulacion1); // NOI18N
+
         getContentPane().add(tabPrincipal, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -102,7 +201,14 @@ public class FrmHotel extends javax.swing.JFrame {
     private javax.swing.JButton btnCambiarUsuario;
     private javax.swing.JLabel lblRecepcionista;
     private javax.swing.JLabel lblTitulo;
+    private vistas.PnlCheckInOut pnlCheckInOut1;
+    private vistas.PnlDisponibilidad pnlDisponibilidad1;
     private javax.swing.JPanel pnlEncabezado;
+    private vistas.PnlHabitaciones pnlHabitaciones1;
+    private vistas.PnlHuespedes pnlHuespedes1;
+    private vistas.PnlInicio pnlInicio1;
+    private vistas.PnlReservas pnlReservas1;
+    private vistas.PnlSimulacion pnlSimulacion1;
     private javax.swing.JPanel pnlUsuario;
     private javax.swing.JTabbedPane tabPrincipal;
     // End of variables declaration//GEN-END:variables
