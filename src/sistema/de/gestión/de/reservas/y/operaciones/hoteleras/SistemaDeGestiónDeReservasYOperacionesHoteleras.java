@@ -4,6 +4,8 @@
  */
 package sistema.de.gestión.de.reservas.y.operaciones.hoteleras;
 
+import vistas.FrmHotel;
+
 /**
  *
  * @author estar
@@ -14,7 +16,7 @@ public class SistemaDeGestiónDeReservasYOperacionesHoteleras {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+         new FrmHotel().setVisible(true);
     }
     
 }

@@ -13,8 +13,26 @@ public class PnlHuespedes extends javax.swing.JPanel {
     /**
      * Creates new form pnlHuespedes
      */
+    
+    // Bandera que indica si el panel ya terminó de construirse.
+    // Mientras sea false, se permite cambiar el layout; cuando es true, se bloquea.
+    private boolean layoutFijo = false;
+
     public PnlHuespedes() {
         initComponents();
+        
+        // A partir de aquí, el layout queda bloqueado.
+       layoutFijo = true;
+    }
+
+    
+    // Este método lo intercepta: si el panel ya está construido, ignora ese cambio
+    // y conserva el BorderLayout original.
+    @Override
+    public void setLayout(java.awt.LayoutManager mgr) {
+        if (!layoutFijo) {
+           super.setLayout(mgr);
+        }
     }
 
     /**
@@ -26,19 +44,159 @@ public class PnlHuespedes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        pnlFormulario = new javax.swing.JPanel();
+        lblIdentificación = new javax.swing.JLabel();
+        txtIdentificación = new javax.swing.JTextField();
+        lblNombreCompleto = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        lblTeléfono = new javax.swing.JLabel();
+        txtTeléfono = new javax.swing.JTextField();
+        lblCorreoElectrónico = new javax.swing.JLabel();
+        txtCorreo = new javax.swing.JTextField();
+        btnRegistrar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblHuespedes = new javax.swing.JTable();
+
+        setForeground(new java.awt.Color(255, 255, 255));
+        setLayout(new java.awt.BorderLayout());
+
+        lblIdentificación.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblIdentificación.setText("Identificación:");
+
+        txtIdentificación.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtIdentificación.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        txtIdentificación.addActionListener(this::txtIdentificaciónActionPerformed);
+
+        lblNombreCompleto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblNombreCompleto.setText("Nombre Completo:");
+
+        txtNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+
+        lblTeléfono.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblTeléfono.setText("Teléfono:");
+
+        txtTeléfono.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtTeléfono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+
+        lblCorreoElectrónico.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblCorreoElectrónico.setText("Correo electrónico:");
+
+        txtCorreo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+
+        btnRegistrar.setBackground(new java.awt.Color(31, 95, 191));
+        btnRegistrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(220, 220, 200));
+        btnRegistrar.setText("Registrar");
+
+        btnLimpiar.setBackground(new java.awt.Color(204, 204, 204));
+        btnLimpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));
+        btnLimpiar.setText("Limpiar");
+
+        tblHuespedes.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        tblHuespedes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Identificación", "Nombre", "Teléfono", "Correo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblHuespedes.setRowHeight(24);
+        jScrollPane1.setViewportView(tblHuespedes);
+
+        javax.swing.GroupLayout pnlFormularioLayout = new javax.swing.GroupLayout(pnlFormulario);
+        pnlFormulario.setLayout(pnlFormularioLayout);
+        pnlFormularioLayout.setHorizontalGroup(
+            pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFormularioLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIdentificación)
+                    .addComponent(lblNombreCompleto)
+                    .addComponent(lblTeléfono)
+                    .addComponent(lblCorreoElectrónico))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtIdentificación, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTeléfono, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormularioLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+
+        pnlFormularioLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCorreo, txtIdentificación, txtNombre, txtTeléfono});
+
+        pnlFormularioLayout.setVerticalGroup(
+            pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFormularioLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlFormularioLayout.createSequentialGroup()
+                        .addGroup(pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIdentificación)
+                            .addComponent(txtIdentificación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addComponent(lblNombreCompleto))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTeléfono)
+                    .addComponent(txtTeléfono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCorreoElectrónico)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
         );
+
+        add(pnlFormulario, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtIdentificaciónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdentificaciónActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdentificaciónActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCorreoElectrónico;
+    private javax.swing.JLabel lblIdentificación;
+    private javax.swing.JLabel lblNombreCompleto;
+    private javax.swing.JLabel lblTeléfono;
+    private javax.swing.JPanel pnlFormulario;
+    private javax.swing.JTable tblHuespedes;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtIdentificación;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTeléfono;
     // End of variables declaration//GEN-END:variables
 }
