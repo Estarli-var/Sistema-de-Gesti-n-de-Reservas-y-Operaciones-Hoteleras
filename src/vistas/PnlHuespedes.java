@@ -89,12 +89,14 @@ public class PnlHuespedes extends javax.swing.JPanel {
         btnRegistrar.setBackground(new java.awt.Color(31, 95, 191));
         btnRegistrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(220, 220, 200));
-        btnRegistrar.setText("Registrar");
+        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/add.png"))); // NOI18N
+        btnRegistrar.setText(" Registrar");
 
         btnLimpiar.setBackground(new java.awt.Color(204, 204, 204));
         btnLimpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));
-        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/broom.png"))); // NOI18N
+        btnLimpiar.setText(" Limpiar");
 
         tblHuespedes.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         tblHuespedes.setModel(new javax.swing.table.DefaultTableModel(

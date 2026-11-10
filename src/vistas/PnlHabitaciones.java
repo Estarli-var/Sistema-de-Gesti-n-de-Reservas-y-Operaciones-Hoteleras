@@ -89,12 +89,14 @@ public class PnlHabitaciones extends javax.swing.JPanel {
         btnRegistrar.setBackground(new java.awt.Color(31, 95, 191));
         btnRegistrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(220, 220, 200));
-        btnRegistrar.setText("Registrar");
+        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/add.png"))); // NOI18N
+        btnRegistrar.setText(" Registrar");
 
         btnLimpiar.setBackground(new java.awt.Color(204, 204, 204));
         btnLimpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));
-        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/broom.png"))); // NOI18N
+        btnLimpiar.setText(" Limpiar");
 
         tblHabitaciones.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         tblHabitaciones.setModel(new javax.swing.table.DefaultTableModel(
@@ -189,18 +191,12 @@ public class PnlHabitaciones extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCapacidad;
-    private javax.swing.JLabel lblIdentificación;
-    private javax.swing.JLabel lblIdentificación1;
     private javax.swing.JLabel lblNumero;
     private javax.swing.JLabel lblTarifa;
     private javax.swing.JLabel lblTipo;
-    private javax.swing.JPanel pnlFormulario;
-    private javax.swing.JPanel pnlFormulario1;
     private javax.swing.JPanel pnlFormulario2;
     private javax.swing.JTable tblHabitaciones;
     private javax.swing.JTextField txtCapacidad;
-    private javax.swing.JTextField txtIdentificación;
-    private javax.swing.JTextField txtIdentificación1;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtTarifa;
     // End of variables declaration//GEN-END:variables
