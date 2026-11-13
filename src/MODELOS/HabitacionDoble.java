@@ -3,32 +3,35 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package Habitaciones;
+package MODELOS;
+
+import MODELOS.Habitacion;
 
 /**
  *
  * @author Aaron Diaz
  */
-public class HabitacionIndividual extends Habitacion{
-    public HabitacionIndividual(String numero){
+public class HabitacionDoble extends Habitacion {
+
+    public HabitacionDoble(String numero){
         super(numero);
     }
     
-    //Capacidad máxima 1 
+    //Capacidad máxima 2
     @Override
     public int getCapacidad(){
-        return 1;
+        return 2;
     }
     
     //Tarifa por noche
     @Override
     public long getTarifa(){
-        return 25000;
+        return 40000;
     }
     
+    //Nombre del tipo de habitacion
     @Override
     public String getTipo(){
-        return "Individual";
+        return "Doble";
     }
-    
 }
