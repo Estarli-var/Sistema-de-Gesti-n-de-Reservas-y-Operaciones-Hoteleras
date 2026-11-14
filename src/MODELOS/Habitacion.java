@@ -16,7 +16,7 @@ public abstract class Habitacion {
         this.numero = numero;
     }
     
-    public String numero(){
+    public String getNumero(){
         return numero;
     }
     
