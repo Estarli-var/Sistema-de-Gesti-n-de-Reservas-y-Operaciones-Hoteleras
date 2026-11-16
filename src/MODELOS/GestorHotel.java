@@ -80,7 +80,7 @@ public class GestorHotel {
         Correo = Correo.trim();
         
         //formato del correo
-        if (Validador.CorreoValido(Correo)) {
+        if (!Validador.CorreoValido(Correo)) {
             throw new IllegalArgumentException("El correo electronico no es válido");
         }
         

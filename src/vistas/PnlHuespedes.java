@@ -3,17 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package vistas;
-
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import MODELOS.Huesped;
+import controladores.ControladorHotel;
 /**
  *
  * @author Aaron Diaz
  */
 public class PnlHuespedes extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form pnlHuespedes
      */
-    
+    private ControladorHotel Controlador;
     // Bandera que indica si el panel ya terminó de construirse.
     // Mientras sea false, se permite cambiar el layout; cuando es true, se bloquea.
     private boolean layoutFijo = false;
@@ -34,7 +37,33 @@ public class PnlHuespedes extends javax.swing.JPanel {
            super.setLayout(mgr);
         }
     }
-
+    //llena la tabla con los huéspedes ya registrados.
+    public void setControlador(ControladorHotel Controlador){
+        this.Controlador = Controlador;
+        CargarTabla();
+    }
+    
+    private void CargarTabla(){
+        DefaultTableModel Modelo =(DefaultTableModel) tblHuespedes.getModel();
+        Modelo.setRowCount(0); //borra las filas
+        
+        for (Huesped huesp : Controlador.getHuespedes()) {
+            Modelo.addRow(new Object[]{
+                huesp.getIdentificacion(), huesp.getNombreCompleto(), huesp.getTelefono(), huesp.getCorreo()
+            });
+        }
+    }
+    
+    private void LimpiarCampos(){
+        txtIdentificación.setText("");
+        txtNombre.setText("");
+        txtTeléfono.setText("");
+        txtCorreo.setText("");
+        txtIdentificación.requestFocusInWindow();
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,7 +95,6 @@ public class PnlHuespedes extends javax.swing.JPanel {
 
         txtIdentificación.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtIdentificación.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        txtIdentificación.addActionListener(this::txtIdentificaciónActionPerformed);
 
         lblNombreCompleto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblNombreCompleto.setText("Nombre Completo:");
@@ -91,12 +119,14 @@ public class PnlHuespedes extends javax.swing.JPanel {
         btnRegistrar.setForeground(new java.awt.Color(220, 220, 200));
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/add.png"))); // NOI18N
         btnRegistrar.setText(" Registrar");
+        btnRegistrar.addActionListener(this::btnRegistrarActionPerformed);
 
         btnLimpiar.setBackground(new java.awt.Color(204, 204, 204));
         btnLimpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));
         btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/broom.png"))); // NOI18N
         btnLimpiar.setText(" Limpiar");
+        btnLimpiar.addActionListener(this::btnLimpiarActionPerformed);
 
         tblHuespedes.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         tblHuespedes.setModel(new javax.swing.table.DefaultTableModel(
@@ -181,9 +211,27 @@ public class PnlHuespedes extends javax.swing.JPanel {
         add(pnlFormulario, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtIdentificaciónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdentificaciónActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdentificaciónActionPerformed
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // El controlador devuelve null si se registró, o el texto del error
+        String Error = Controlador.RegistrarHuesped(txtIdentificación.getText(), txtNombre.getText(), 
+                txtTeléfono.getText(), txtCorreo.getText());
+        
+        if (Error != null) {
+            JOptionPane.showMessageDialog(this, Error, "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        CargarTabla();
+        LimpiarCampos();
+        
+        JOptionPane.showMessageDialog(this, "Huésped registrado correctamente.", "Éxito",
+                JOptionPane.INFORMATION_MESSAGE);
+        
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        LimpiarCampos();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

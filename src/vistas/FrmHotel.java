@@ -21,6 +21,8 @@ public class FrmHotel extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         Controlador = new ControladorHotel(this);
+        pnlHuespedes1.setControlador(Controlador);
+        pnlHabitaciones1.setControlador(Controlador);
         lblRecepcionista.setText("Recepcionista: " + Controlador.getUsuarioActivo());
     }
     /**
