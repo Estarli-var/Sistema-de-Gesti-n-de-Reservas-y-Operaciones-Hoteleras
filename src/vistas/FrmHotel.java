@@ -4,12 +4,14 @@
  */
 package vistas;
 
+import controladores.ControladorHotel;
+
 /**
  *
  * @author Aaron Diaz
  */
 public class FrmHotel extends javax.swing.JFrame {
-    
+    private ControladorHotel Controlador;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmHotel.class.getName());
 
     /**
@@ -17,9 +19,10 @@ public class FrmHotel extends javax.swing.JFrame {
      */
     public FrmHotel() {
         initComponents();
-        setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+        setLocationRelativeTo(null);
+        Controlador = new ControladorHotel(this);
+        lblRecepcionista.setText("Recepcionista: " + Controlador.getUsuarioActivo());
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,6 +71,7 @@ public class FrmHotel extends javax.swing.JFrame {
         btnCambiarUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btnCambiarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/circulo__1_.png"))); // NOI18N
         btnCambiarUsuario.setText("Cambiar usuario");
+        btnCambiarUsuario.addActionListener(this::btnCambiarUsuarioActionPerformed);
         pnlUsuario.add(btnCambiarUsuario);
 
         pnlEncabezado.add(pnlUsuario, java.awt.BorderLayout.LINE_END);
@@ -171,6 +175,10 @@ public class FrmHotel extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCambiarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarUsuarioActionPerformed
+        Controlador.CambiarUsuario();
+    }//GEN-LAST:event_btnCambiarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
