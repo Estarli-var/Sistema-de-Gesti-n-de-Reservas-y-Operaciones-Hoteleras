@@ -3,18 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package vistas;
-
+import MODELOS.Reserva;
+import controladores.ControladorHotel;
+import java.time.LocalDate;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Aaron Diaz
  */
 public class PnlSimulacion extends javax.swing.JPanel {
-
+    private ControladorHotel Controlador;
+    private boolean layoutFijo = false;
     /**
      * Creates new form PnlSimulacion
      */
     public PnlSimulacion() {
         initComponents();
+        layoutFijo = true;
     }
 
     /**
@@ -154,7 +161,46 @@ public class PnlSimulacion extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+    @Override
+    public void setLayout(java.awt.LayoutManager mgr) {
+        if (!layoutFijo) super.setLayout(mgr);
+    }
+    public void setControlador(ControladorHotel Controlador) {
+        this.Controlador = Controlador;
+        btnSimular.addActionListener(evt -> Simular());
+    }
 
+    private void Simular() {
+        if (DCSFechaReferencia.getDate() == null) {
+            JOptionPane.showMessageDialog(this, "Seleccione una fecha de referencia.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        LocalDate fecha = DCSFechaReferencia.getDate()
+            .toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+
+        List<Reserva> confirmadas;
+        try {
+            confirmadas = Controlador.SimularVencimientos(fecha);
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        DefaultTableModel modelo = (DefaultTableModel) tblSimulacion.getModel();
+        modelo.setRowCount(0);
+        for (Reserva r : confirmadas) {
+            String estadoSimulado = r.vencidaEn(fecha) ? "VENCIDA (simulada)" : "CONFIRMADA";
+            modelo.addRow(new Object[]{
+                r.getCodigo(),
+                r.getHuesped().getNombreCompleto(),
+                r.getFechaEntrada().toString(),
+                estadoSimulado
+            });
+        }
+        JOptionPane.showMessageDialog(this,
+            "Simulación completada. No se modificó ninguna reserva.",
+            "Información", JOptionPane.INFORMATION_MESSAGE);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DCSFechaReferencia;

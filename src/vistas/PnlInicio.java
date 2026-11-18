@@ -3,18 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package vistas;
-
+import controladores.ControladorHotel;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Aaron Diaz
  */
 public class PnlInicio extends javax.swing.JPanel {
-
+    private ControladorHotel Controlador;
+    private boolean layoutFijo = false;
     /**
      * Creates new form pnlInicio
      */
     public PnlInicio() {
         initComponents();
+        layoutFijo = true;
     }
 
     /**
@@ -421,7 +424,38 @@ public class PnlInicio extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+    @Override
+    public void setLayout(java.awt.LayoutManager mgr) {
+        if (!layoutFijo) super.setLayout(mgr);
+    }
 
+    
+    public void setControlador(ControladorHotel Controlador) {
+    this.Controlador = Controlador;
+    btnEjecutarProcesos.addActionListener(evt -> EjecutarProcesos());
+    Controlador.ActualizarIndicadoresEnVista();
+}
+    
+    public void actualizarIndicadores(int total, int ocupadas, int disponibles,
+                                  int confirmadas, int vencidas, String ingresos) {
+    jLabel4.setText(String.valueOf(total));
+    lblOcupadas.setText(String.valueOf(ocupadas));
+    lblDisponibles.setText(String.valueOf(disponibles));
+    lblConfirmadas.setText(String.valueOf(confirmadas));
+    lblVencidas.setText(String.valueOf(vencidas));
+    lblIngresos.setText(ingresos);
+}
+
+    private void EjecutarProcesos() {
+        String error = Controlador.IniciarHilos();
+        if (error != null) {
+            JOptionPane.showMessageDialog(this, error, "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this,
+                "Procesos iniciados. Observe la consola de NetBeans.",
+                "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEjecutarProcesos;

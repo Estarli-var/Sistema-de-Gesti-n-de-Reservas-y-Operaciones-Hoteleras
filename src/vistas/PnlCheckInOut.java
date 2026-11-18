@@ -3,18 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package vistas;
-
+import MODELOS.Reserva;
+import controladores.ControladorHotel;
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Aaron Diaz
  */
 public class PnlCheckInOut extends javax.swing.JPanel {
+    private ControladorHotel Controlador;
+    private boolean layoutFijo = false;
 
     /**
      * Creates new form PnlCheckInOut
      */
     public PnlCheckInOut() {
         initComponents();
+        layoutFijo = true;
+        ButtonGroup grupo = new ButtonGroup();
+    grupo.add(rbCheckIn);
+    grupo.add(rbCheckOut);
     }
 
     /**
@@ -209,7 +218,62 @@ public class PnlCheckInOut extends javax.swing.JPanel {
                 .addComponent(btnProcesar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
+    @Override
+    public void setLayout(java.awt.LayoutManager mgr) {
+        if (!layoutFijo) super.setLayout(mgr);
+    }
+    public void setControlador(ControladorHotel Controlador) {
+        this.Controlador = Controlador;
+        btnBuscar.addActionListener(evt -> Buscar());
+        btnProcesar.addActionListener(evt -> Procesar());
+    }
 
+    private void Buscar() {
+        String codigo = txtCodigoReserva.getText().trim();
+        Reserva r = Controlador.BuscarReserva(codigo);
+        if (r == null) {
+            JOptionPane.showMessageDialog(this, "No existe una reserva con ese código.", "Error", JOptionPane.ERROR_MESSAGE);
+            LimpiarDetalle();
+            return;
+        }
+        lblHuesped.setText("Huésped: " + r.getHuesped().getNombreCompleto());
+        lblHabitacion.setText("Habitación: " + r.getHabitacion().getNumero());
+        lblEntrada.setText("Entrada programada: " + r.getFechaEntrada());
+        lblSalida.setText("Salida programada: " + r.getFechaSalida());
+        lblEstado.setText("Estado actual: " + r.getEstado());
+    }
+
+    private void Procesar() {
+        String codigo = txtCodigoReserva.getText().trim();
+        if (codigo.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese un código de reserva.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (!rbCheckIn.isSelected() && !rbCheckOut.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Seleccione Check-in o Check-out.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        String error;
+        if (rbCheckIn.isSelected()) {
+            error = Controlador.RealizarCheckIn(codigo);
+        } else {
+            error = Controlador.RealizarCheckOut(codigo);
+        }
+        if (error != null) {
+            JOptionPane.showMessageDialog(this, error, "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        JOptionPane.showMessageDialog(this, "Operación realizada correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        Buscar(); // refresca el detalle con el nuevo estado
+    }
+
+    private void LimpiarDetalle() {
+        lblHuesped.setText("Huésped:");
+        lblHabitacion.setText("Habitación:");
+        lblEntrada.setText("Entrada programada:");
+        lblSalida.setText("Salida programada:");
+        lblEstado.setText("Estado actual:");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
