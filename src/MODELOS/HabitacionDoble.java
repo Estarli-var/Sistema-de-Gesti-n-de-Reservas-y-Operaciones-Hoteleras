@@ -34,4 +34,9 @@ public class HabitacionDoble extends Habitacion {
     public String getTipo(){
         return "Doble";
     }
+    @Override
+    public String toString() {
+        return getNumero() + " - " + getTipo();
+    }
+    
 }
