@@ -9,5 +9,8 @@ package ENUMs;
  * @author estar
  */
 public enum EstadoReserva {
-    
+    CONFIRMADA,
+    HOSPEDADO,
+    FINALIZADA,
+    VENCIDA
 }
