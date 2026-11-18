@@ -3,18 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package vistas;
-
+import controladores.ControladorHotel;
+import java.time.LocalDate;
+import java.util.List;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Aaron Diaz
  */
 public class PnlDisponibilidad extends javax.swing.JPanel {
-
+    private ControladorHotel Controlador;
+    private boolean layoutFijo = false;
     /**
      * Creates new form pnlDisponibilidad
      */
     public PnlDisponibilidad() {
         initComponents();
+        layoutFijo = true;
     }
 
     /**
@@ -127,23 +132,15 @@ public class PnlDisponibilidad extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblFecha)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFecha)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(164, 164, 164)
@@ -176,7 +173,33 @@ public class PnlDisponibilidad extends javax.swing.JPanel {
                     .addContainerGap(259, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
+    public void setControlador(ControladorHotel Controlador) {
+        this.Controlador = Controlador;
+        btnConsultar.addActionListener(evt -> Consultar());
+    }
 
+    @Override
+    public void setLayout(java.awt.LayoutManager mgr) {
+        if (!layoutFijo) super.setLayout(mgr);
+    }
+    private void Consultar() {
+        if (jDateChooser1.getDate() == null) {
+            JOptionPane.showMessageDialog(this, "Seleccione una fecha.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        LocalDate fecha = jDateChooser1.getDate()
+            .toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+
+        int cantidad = Controlador.ConsultarDisponibilidad(fecha);
+        List<String> numeros = Controlador.GetHabitacionesDisponibles(fecha);
+
+        lblCantidad.setText("Habitaciones disponibles: " + cantidad);
+        if (numeros.isEmpty()) {
+            txtListaHabitaciones.setText("No hay habitaciones disponibles para esa fecha.");
+        } else {
+            txtListaHabitaciones.setText("Habitaciones: " + String.join(", ", numeros));
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;

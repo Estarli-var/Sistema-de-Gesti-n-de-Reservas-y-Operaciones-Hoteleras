@@ -22,7 +22,11 @@ public class FrmHotel extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         Controlador = new ControladorHotel(this);
         pnlHuespedes1.setControlador(Controlador);
-        pnlHabitaciones1.setControlador(Controlador);
+        pnlHabitaciones1.setControlador(Controlador);        
+        pnlDisponibilidad1.setControlador(Controlador);   
+        pnlCheckInOut1.setControlador(Controlador);       
+        pnlInicio1.setControlador(Controlador);           
+        pnlSimulacion1.setControlador(Controlador);       
         lblRecepcionista.setText("Recepcionista: " + Controlador.getUsuarioActivo());
     }
     /**
@@ -177,7 +181,10 @@ public class FrmHotel extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+public void actualizarIndicadores(int total, int ocupadas, int disponibles,
+                                  int confirmadas, int vencidas, String ingresos) {
+    pnlInicio1.actualizarIndicadores(total, ocupadas, disponibles, confirmadas, vencidas, ingresos);
+}
     private void btnCambiarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarUsuarioActionPerformed
         Controlador.CambiarUsuario();
     }//GEN-LAST:event_btnCambiarUsuarioActionPerformed

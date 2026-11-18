@@ -44,6 +44,7 @@ public class ControladorLogin {
             Vista.dispose();
         } catch(IllegalArgumentException | IllegalStateException e ){
             Vista.MostrarMensaje(e.getMessage());
+            Vista.LimpiarCampos();
         }
     }
     
