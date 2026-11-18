@@ -23,10 +23,18 @@ public class FrmHotel extends javax.swing.JFrame {
         Controlador = new ControladorHotel(this);
         pnlHuespedes1.setControlador(Controlador);
         pnlHabitaciones1.setControlador(Controlador);        
+        pnlReservas1.setControlador(Controlador);
         pnlDisponibilidad1.setControlador(Controlador);   
         pnlCheckInOut1.setControlador(Controlador);       
         pnlInicio1.setControlador(Controlador);           
-        pnlSimulacion1.setControlador(Controlador);       
+        pnlSimulacion1.setControlador(Controlador);
+        
+        tabPrincipal.addChangeListener(e -> {
+            if (tabPrincipal.getSelectedComponent() == pnlReservas1) {
+                pnlReservas1.ActualizarDatos();
+            }
+        });
+
         lblRecepcionista.setText("Recepcionista: " + Controlador.getUsuarioActivo());
     }
     /**
