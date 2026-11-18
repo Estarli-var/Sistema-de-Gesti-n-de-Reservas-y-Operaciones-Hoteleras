@@ -33,4 +33,8 @@ public class HabitacionIndividual extends Habitacion{
         return "Individual";
     }
     
+        @Override
+    public String toString() {
+        return getNumero() + " - " + getTipo();
+    }
 }

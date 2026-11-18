@@ -234,7 +234,7 @@ public class PnlHabitaciones extends javax.swing.JPanel {
         
         if (Error != null) {
             JOptionPane.showMessageDialog(this, Error, "Error", JOptionPane.ERROR_MESSAGE);
-        
+            return;
         }
         
         CargarTabla();
