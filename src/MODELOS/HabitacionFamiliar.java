@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package Habitaciones;
+package MODELOS;
+
+import MODELOS.Habitacion;
 
 /**
  *

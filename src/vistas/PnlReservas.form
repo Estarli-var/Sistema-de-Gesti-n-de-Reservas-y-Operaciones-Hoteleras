@@ -73,34 +73,34 @@
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblEstado" linkSize="3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtEstado" linkSize="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtEstado" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblNoches" linkSize="3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtNoches" linkSize="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNoches" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblFechaSalida" linkSize="3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jdtFechaSalida" linkSize="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jdtFechaSalida" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblImporte" linkSize="3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtImporte" linkSize="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtImporte" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblFechaEntrada" linkSize="3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jdtFechaEntrada" linkSize="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jdtFechaEntrada" min="-2" pref="155" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="66" pref="495" max="32767" attributes="0"/>
+                  <EmptySpace min="66" pref="463" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

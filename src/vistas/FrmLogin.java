@@ -4,6 +4,8 @@
  */
 package vistas;
 
+import controladores.ControladorLogin;
+
 /**
  *
  * @author Aaron Diaz
@@ -12,17 +14,41 @@ package vistas;
 public class FrmLogin extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmLogin.class.getName());
-
+    private ControladorLogin Controlador;
     /**
      * Creates new form FrmLogin
      */
     public FrmLogin() {
         initComponents();
-         setLocationRelativeTo(null);
-         lblMensaje.setVisible(false);
+        setLocationRelativeTo(null);
+        lblMensaje.setVisible(false);
+        Controlador = new ControladorLogin(this);
+        // Enter = clic en Iniciar sesión
+        getRootPane().setDefaultButton(btnIniciarSesion);
         
     }
 
+    public String getUsuario(){
+        return txtUsuario.getText();
+    }
+    
+    public String getContraseña(){
+        // la contraseña viene como char[]
+        return new String(txtContraseña.getPassword());
+    }
+    
+    public void MostrarMensaje(String mensaje){
+        lblMensaje.setText(mensaje);
+        lblMensaje.setVisible(true);
+    }
+    
+    public void LimpiarCampos(){
+        txtUsuario.setText("");
+        txtContraseña.setText("");
+        lblMensaje.setVisible(false);
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,7 +60,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         lblContraseña = new javax.swing.JLabel();
         lblUsuario1 = new javax.swing.JLabel();
-        txtUsuario1 = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         txtContraseña = new javax.swing.JPasswordField();
         titulo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -44,9 +70,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hotel - Iniciar Sesión");
-        setMaximumSize(null);
         setMinimumSize(new java.awt.Dimension(400, 400));
-        setPreferredSize(new java.awt.Dimension(400, 400));
         setResizable(false);
         setSize(new java.awt.Dimension(330, 380));
 
@@ -56,8 +80,8 @@ public class FrmLogin extends javax.swing.JFrame {
         lblUsuario1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblUsuario1.setText("Usuario:");
 
-        txtUsuario1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        txtUsuario1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        txtUsuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
 
         txtContraseña.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtContraseña.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
@@ -85,6 +109,7 @@ public class FrmLogin extends javax.swing.JFrame {
         btnIniciarSesion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/usuario.png"))); // NOI18N
         btnIniciarSesion.setText("Iniciar Sesión");
+        btnIniciarSesion.addActionListener(this::btnIniciarSesionActionPerformed);
 
         javax.swing.GroupLayout pnlBontonInformacionLayout = new javax.swing.GroupLayout(pnlBontonInformacion);
         pnlBontonInformacion.setLayout(pnlBontonInformacionLayout);
@@ -117,7 +142,7 @@ public class FrmLogin extends javax.swing.JFrame {
                     .addComponent(lblUsuario1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -126,7 +151,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblContraseña, lblUsuario1});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtContraseña, txtUsuario1});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtContraseña, txtUsuario});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +159,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUsuario1))
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -146,6 +171,10 @@ public class FrmLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+        Controlador.IniciarSesion();
+    }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,6 +210,6 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JPanel pnlBontonInformacion;
     private javax.swing.JPanel titulo;
     private javax.swing.JPasswordField txtContraseña;
-    private javax.swing.JTextField txtUsuario1;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

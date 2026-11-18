@@ -26,19 +26,438 @@ public class PnlInicio extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel7 = new javax.swing.JPanel();
+        pnlIndicadores = new javax.swing.JPanel();
+        pnlTotal = new javax.swing.JPanel();
+        lblTituloTotal = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        pnlConfirmadas = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        lblConfirmadas = new javax.swing.JLabel();
+        pnlDisponibles = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        lblDisponibles = new javax.swing.JLabel();
+        pnlIngresos = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        lblIngresos = new javax.swing.JLabel();
+        pnlOcupadas = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        lblOcupadas = new javax.swing.JLabel();
+        pnlVencidas = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        lblVencidas = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        pnlImagen = new javax.swing.JPanel();
+        lblImagen = new javax.swing.JLabel();
+        pnlProcesos = new javax.swing.JPanel();
+        btnEjecutarProcesos = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblNota = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        setBackground(new java.awt.Color(5, 5, 5));
+
+        pnlIndicadores.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Indicadores del Hotel", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
+
+        pnlTotal.setBackground(new java.awt.Color(224, 239, 254));
+        pnlTotal.setForeground(new java.awt.Color(0, 0, 0));
+        pnlTotal.setPreferredSize(new java.awt.Dimension(196, 63));
+
+        lblTituloTotal.setForeground(new java.awt.Color(0, 102, 102));
+        lblTituloTotal.setText("Total habitaciones");
+
+        jLabel4.setText("______");
+
+        javax.swing.GroupLayout pnlTotalLayout = new javax.swing.GroupLayout(pnlTotal);
+        pnlTotal.setLayout(pnlTotalLayout);
+        pnlTotalLayout.setHorizontalGroup(
+            pnlTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTotalLayout.createSequentialGroup()
+                .addGroup(pnlTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTituloTotal)
+                    .addComponent(jLabel4))
+                .addGap(0, 32, Short.MAX_VALUE))
+        );
+        pnlTotalLayout.setVerticalGroup(
+            pnlTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTotalLayout.createSequentialGroup()
+                .addComponent(lblTituloTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jLabel4))
+        );
+
+        pnlConfirmadas.setBackground(new java.awt.Color(229, 236, 253));
+        pnlConfirmadas.setPreferredSize(new java.awt.Dimension(196, 63));
+
+        jLabel9.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel9.setText("Reservas confirmadas");
+
+        lblConfirmadas.setText("jLabel10");
+
+        javax.swing.GroupLayout pnlConfirmadasLayout = new javax.swing.GroupLayout(pnlConfirmadas);
+        pnlConfirmadas.setLayout(pnlConfirmadasLayout);
+        pnlConfirmadasLayout.setHorizontalGroup(
+            pnlConfirmadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel9)
+            .addComponent(lblConfirmadas)
+        );
+        pnlConfirmadasLayout.setVerticalGroup(
+            pnlConfirmadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlConfirmadasLayout.createSequentialGroup()
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(lblConfirmadas))
+        );
+
+        pnlDisponibles.setBackground(new java.awt.Color(226, 244, 228));
+
+        jLabel16.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel16.setText("Disponibles");
+
+        lblDisponibles.setText("jLabel8");
+
+        javax.swing.GroupLayout pnlDisponiblesLayout = new javax.swing.GroupLayout(pnlDisponibles);
+        pnlDisponibles.setLayout(pnlDisponiblesLayout);
+        pnlDisponiblesLayout.setHorizontalGroup(
+            pnlDisponiblesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDisponiblesLayout.createSequentialGroup()
+                .addGroup(pnlDisponiblesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16)
+                    .addComponent(lblDisponibles))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        pnlDisponiblesLayout.setVerticalGroup(
+            pnlDisponiblesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDisponiblesLayout.createSequentialGroup()
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(lblDisponibles)
+                .addContainerGap())
+        );
+
+        pnlIngresos.setBackground(new java.awt.Color(236, 230, 252));
+        pnlIngresos.setPreferredSize(new java.awt.Dimension(196, 63));
+
+        jLabel13.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel13.setText("Ingresos esperados");
+
+        lblIngresos.setText("jLabel14");
+
+        javax.swing.GroupLayout pnlIngresosLayout = new javax.swing.GroupLayout(pnlIngresos);
+        pnlIngresos.setLayout(pnlIngresosLayout);
+        pnlIngresosLayout.setHorizontalGroup(
+            pnlIngresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlIngresosLayout.createSequentialGroup()
+                .addGroup(pnlIngresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addComponent(lblIngresos))
+                .addGap(0, 13, Short.MAX_VALUE))
+        );
+        pnlIngresosLayout.setVerticalGroup(
+            pnlIngresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlIngresosLayout.createSequentialGroup()
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(lblIngresos))
+        );
+
+        pnlOcupadas.setBackground(new java.awt.Color(253, 226, 223));
+        pnlOcupadas.setPreferredSize(new java.awt.Dimension(196, 63));
+
+        jLabel5.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel5.setText("Ocupadas");
+
+        lblOcupadas.setText("_________");
+
+        javax.swing.GroupLayout pnlOcupadasLayout = new javax.swing.GroupLayout(pnlOcupadas);
+        pnlOcupadas.setLayout(pnlOcupadasLayout);
+        pnlOcupadasLayout.setHorizontalGroup(
+            pnlOcupadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlOcupadasLayout.createSequentialGroup()
+                .addGroup(pnlOcupadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(lblOcupadas))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        pnlOcupadasLayout.setVerticalGroup(
+            pnlOcupadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlOcupadasLayout.createSequentialGroup()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(lblOcupadas))
+        );
+
+        pnlVencidas.setBackground(new java.awt.Color(252, 228, 228));
+        pnlVencidas.setPreferredSize(new java.awt.Dimension(196, 63));
+
+        jLabel11.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel11.setText("Reservas vencidas");
+
+        lblVencidas.setText("jLabel12");
+
+        javax.swing.GroupLayout pnlVencidasLayout = new javax.swing.GroupLayout(pnlVencidas);
+        pnlVencidas.setLayout(pnlVencidasLayout);
+        pnlVencidasLayout.setHorizontalGroup(
+            pnlVencidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlVencidasLayout.createSequentialGroup()
+                .addGroup(pnlVencidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(lblVencidas))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        pnlVencidasLayout.setVerticalGroup(
+            pnlVencidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlVencidasLayout.createSequentialGroup()
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(lblVencidas))
+        );
+
+        javax.swing.GroupLayout pnlIndicadoresLayout = new javax.swing.GroupLayout(pnlIndicadores);
+        pnlIndicadores.setLayout(pnlIndicadoresLayout);
+        pnlIndicadoresLayout.setHorizontalGroup(
+            pnlIndicadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlIndicadoresLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlIndicadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                    .addComponent(pnlDisponibles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlVencidas, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlIndicadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlIndicadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(pnlConfirmadas, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                        .addComponent(pnlOcupadas, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
+                    .addComponent(pnlIngresos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        pnlIndicadoresLayout.setVerticalGroup(
+            pnlIndicadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlIndicadoresLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlIndicadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlOcupadas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlIndicadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlConfirmadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlIndicadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlVencidas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlIngresos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        jPanel10.setBackground(new java.awt.Color(227, 240, 252));
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(11, 79, 159));
+        jLabel1.setText("Panel principal");
+
+        jLabel2.setForeground(new java.awt.Color(11, 79, 159));
+        jLabel2.setText("Indicadores generales y supervisión del hotel");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap())
+        );
+
+        lblImagen.setText("logo del hotel");
+
+        javax.swing.GroupLayout pnlImagenLayout = new javax.swing.GroupLayout(pnlImagen);
+        pnlImagen.setLayout(pnlImagenLayout);
+        pnlImagenLayout.setHorizontalGroup(
+            pnlImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlImagenLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(lblImagen)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlImagenLayout.setVerticalGroup(
+            pnlImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlImagenLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(lblImagen)
+                .addContainerGap(135, Short.MAX_VALUE))
+        );
+
+        pnlProcesos.setBackground(new java.awt.Color(227, 240, 252));
+        pnlProcesos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Procesos de supervisión", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        btnEjecutarProcesos.setBackground(new java.awt.Color(14, 92, 173));
+        btnEjecutarProcesos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEjecutarProcesos.setText("Ejecutar procesos");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/engranaje.png"))); // NOI18N
+
+        jLabel6.setForeground(new java.awt.Color(11, 79, 159));
+        jLabel6.setText("Ejecución concurrente");
+
+        javax.swing.GroupLayout pnlProcesosLayout = new javax.swing.GroupLayout(pnlProcesos);
+        pnlProcesos.setLayout(pnlProcesosLayout);
+        pnlProcesosLayout.setHorizontalGroup(
+            pnlProcesosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlProcesosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGroup(pnlProcesosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlProcesosLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEjecutarProcesos)
+                        .addContainerGap())
+                    .addGroup(pnlProcesosLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        pnlProcesosLayout.setVerticalGroup(
+            pnlProcesosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProcesosLayout.createSequentialGroup()
+                .addGroup(pnlProcesosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlProcesosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEjecutarProcesos))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+
+        jPanel1.setBackground(new java.awt.Color(254, 242, 204));
+
+        lblNota.setForeground(new java.awt.Color(92, 67, 8));
+        lblNota.setText("Los mensajes de ejecución de los hilos se muestran en la consola de salida de NetBeans.");
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/advertencia.png"))); // NOI18N
+        jLabel10.setText("jLabel10");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNota, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(140, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                    .addComponent(lblNota))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(pnlImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlIndicadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(pnlProcesos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlIndicadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(pnlImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(pnlProcesos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEjecutarProcesos;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JLabel lblConfirmadas;
+    private javax.swing.JLabel lblDisponibles;
+    private javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lblIngresos;
+    private javax.swing.JLabel lblNota;
+    private javax.swing.JLabel lblOcupadas;
+    private javax.swing.JLabel lblTituloTotal;
+    private javax.swing.JLabel lblVencidas;
+    private javax.swing.JPanel pnlConfirmadas;
+    private javax.swing.JPanel pnlDisponibles;
+    private javax.swing.JPanel pnlImagen;
+    private javax.swing.JPanel pnlIndicadores;
+    private javax.swing.JPanel pnlIngresos;
+    private javax.swing.JPanel pnlOcupadas;
+    private javax.swing.JPanel pnlProcesos;
+    private javax.swing.JPanel pnlTotal;
+    private javax.swing.JPanel pnlVencidas;
     // End of variables declaration//GEN-END:variables
 }

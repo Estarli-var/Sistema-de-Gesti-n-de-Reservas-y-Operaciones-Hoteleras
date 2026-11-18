@@ -4,6 +4,11 @@
  */
 package vistas;
 
+import MODELOS.Habitacion;
+import controladores.ControladorHotel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Aaron Diaz
@@ -16,6 +21,7 @@ public class PnlHabitaciones extends javax.swing.JPanel {
     // Bandera que indica si el panel ya terminó de construirse.
     // Mientras sea false, se permite cambiar el layout; cuando es true, se bloquea.
     private boolean layoutFijo = false;
+    private ControladorHotel Controlador;
 
     public PnlHabitaciones() {
         initComponents();
@@ -33,6 +39,40 @@ public class PnlHabitaciones extends javax.swing.JPanel {
             super.setLayout(mgr);
         }
     }
+    
+    public void setControlador(ControladorHotel Controlador){
+        this.Controlador = Controlador;
+        CargarTabla();
+        MostrarCapacidadYTarifa();
+    }
+    
+    // Vacía la tabla y la vuelve a llenar con las habitaciones del modelo
+    public void CargarTabla(){
+        DefaultTableModel Modelo = (DefaultTableModel) tblHabitaciones.getModel();
+        Modelo.setRowCount(0);
+        
+        for (Habitacion habi : Controlador.getHabitaciones()) {
+           Modelo.addRow(new Object[]{
+               habi.getNumero(), habi.getTipo(), habi.getCapacidad(), Controlador.FormatearTarifa(habi.getTarifa())
+           });
+        }
+    }
+    
+    // Pide al modelo la capacidad y la tarifa del tipo elegido y las muestra
+    public void MostrarCapacidadYTarifa(){
+        String Tipo = (String) cmbTipo.getSelectedItem();
+        String[] Datos = Controlador.ObtenerCapacidadYTarifa(Tipo);
+        txtCapacidad.setText(Datos[0]);
+        txtTarifa.setText(Datos[1]);
+    }
+    
+    private void LimpiarCampos(){
+        txtNumero.setText("");
+        cmbTipo.setSelectedIndex(0);
+        MostrarCapacidadYTarifa();
+        txtNumero.requestFocusInWindow();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,7 +103,6 @@ public class PnlHabitaciones extends javax.swing.JPanel {
 
         txtNumero.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtNumero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        txtNumero.addActionListener(this::txtNumeroActionPerformed);
 
         lblTipo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblTipo.setText("Tipo");
@@ -71,6 +110,7 @@ public class PnlHabitaciones extends javax.swing.JPanel {
         cmbTipo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Individual", "Doble", "Familiar" }));
         cmbTipo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(200, 200, 200), 1, true));
+        cmbTipo.addActionListener(this::cmbTipoActionPerformed);
 
         lblCapacidad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblCapacidad.setText("Capacidad");
@@ -91,12 +131,14 @@ public class PnlHabitaciones extends javax.swing.JPanel {
         btnRegistrar.setForeground(new java.awt.Color(220, 220, 200));
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/add.png"))); // NOI18N
         btnRegistrar.setText(" Registrar");
+        btnRegistrar.addActionListener(this::btnRegistrarActionPerformed);
 
         btnLimpiar.setBackground(new java.awt.Color(204, 204, 204));
         btnLimpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));
         btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/broom.png"))); // NOI18N
         btnLimpiar.setText(" Limpiar");
+        btnLimpiar.addActionListener(this::btnLimpiarActionPerformed);
 
         tblHabitaciones.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         tblHabitaciones.setModel(new javax.swing.table.DefaultTableModel(
@@ -180,10 +222,34 @@ public class PnlHabitaciones extends javax.swing.JPanel {
         add(pnlFormulario2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroActionPerformed
+    private void cmbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoActionPerformed
+        // por si salta antes de recibir el controlador
+        if (Controlador !=  null) {
+            MostrarCapacidadYTarifa();
+        }
+    }//GEN-LAST:event_cmbTipoActionPerformed
 
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        String Error = Controlador.RegistrarHabitacion(txtNumero.getText(), (String)cmbTipo.getSelectedItem());
+        
+        if (Error != null) {
+            JOptionPane.showMessageDialog(this, Error, "Error", JOptionPane.ERROR_MESSAGE);
+        
+        }
+        
+        CargarTabla();
+        txtNumero.setText("");
+        txtNumero.requestFocusInWindow();
+        
+        JOptionPane.showMessageDialog(this, "Habitación registrada correctamente.", "Éxito", 
+                JOptionPane.INFORMATION_MESSAGE);
+
+        
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        LimpiarCampos();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLimpiar;

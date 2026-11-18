@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package Habitaciones;
+package MODELOS;
 
 /**
  *
@@ -16,7 +16,7 @@ public abstract class Habitacion {
         this.numero = numero;
     }
     
-    public String numero(){
+    public String getNumero(){
         return numero;
     }
     
