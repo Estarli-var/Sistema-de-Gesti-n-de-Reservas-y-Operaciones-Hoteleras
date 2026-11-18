@@ -53,13 +53,11 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="scrSimulacion" min="-2" pref="455" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="pnlAviso" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="pnlAviso" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="scrSimulacion" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -90,7 +88,7 @@
                           <Component id="btnSimular" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="lblFechaReferencia" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="318" max="32767" attributes="0"/>
                               <Component id="DCSFechaReferencia" min="-2" pref="115" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -122,7 +120,7 @@
                 <Property name="text" type="java.lang.String" value="Fecha de referencia:"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="DCSFechaReferencia">
+            <Component class="org.netbeans.modules.form.InvalidComponent" name="DCSFechaReferencia">
             </Component>
             <Component class="javax.swing.JButton" name="btnSimular">
               <Properties>
